@@ -16,8 +16,11 @@ const server = require('http').createServer(app);
 module.exports.io = require('socket.io')(server);
 require('./sockets/socket');
 //Path publico
-const publicPath = path.resolve(__dirname, 'public');
-app.use(express.static(publicPath));
+// const publicPath = path.resolve(__dirname, 'public')
+app.get("/", (req, res) => {
+    res.sendFile(path.resolve("./public/index.html"));
+});
+// app.use(express.static(publicPath));
 server.listen(process.env.PORT, (error) => {
     if (error)
         throw new Error(error);
