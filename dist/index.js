@@ -18,7 +18,7 @@ require('./sockets/socket');
 //Path publico
 // const publicPath = path.resolve(__dirname, 'public')
 app.get("/", (req, res) => {
-    res.sendFile(path.resolve("./public/index.html"));
+    res.sendFile(path.resolve(__dirname, "./public/index.html"));
 });
 // app.use(express.static(publicPath));
 server.listen(process.env.PORT, (error) => {
