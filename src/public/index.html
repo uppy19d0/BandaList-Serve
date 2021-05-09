@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <h1>ACCESO DENEGADO </h1>
+    <h1>ACCESO DENEGADO!!! </h1>
     <script src="socket.io/socket.io.js"></script>
     <script>
         var socket = io();
@@ -23,6 +23,17 @@
         });
         socket.on('message', function(payload) {
             console.log("Recibi:", payload);
+        })
+        socket.on('emit-message-flutter',payload=>{
+            console.log("LISTING OF FLUTTER:",payload);
+            // console.log("tu nombre!!", payload.name ,"de donde",payload.message);
+            // client.broadcast.emit('new-message',payload);
+            });
+            socket.on('active-bands', function(payload) {
+            // console.log("BANDAS:", payload);
+            console.clear();
+            console.table(payload);
+
         })
     </script>
 </body>
